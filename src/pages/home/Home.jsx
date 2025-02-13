@@ -1,5 +1,6 @@
 import Announcement from "../../components/announcement/Announcement"
 import Categories from '../../components/categories/Categories'
+import Footer from "../../components/footer/Footer"
 import Navbar from '../../components/navbar/Navbar'
 import Newsletter from "../../components/newsletter/Newsletter"
 import Bestsellers from "../../components/products/Bestsellers"
@@ -16,6 +17,7 @@ const Home = () => {
       <NewArrivals/>
       <Bestsellers/>
       <Newsletter/>
+      <Footer/>
     </div>
   )
 }
