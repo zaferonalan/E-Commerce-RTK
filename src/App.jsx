@@ -5,6 +5,7 @@ import Navbar from './components/navbar/Navbar';
 import Home from './pages/home/Home'
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Register from './pages/register/Register';
+import Login from './pages/login/Login';
 
 const App = () => {
 
@@ -19,7 +20,7 @@ const App = () => {
     )
   }
 
-  const RegisterLayout = () => {
+  const AuthLayout  = () => {
     return(
       <>
         <Outlet/>
@@ -36,10 +37,11 @@ const App = () => {
       ],
     },
     {
-      path: "/register",
-      element: <RegisterLayout/>,
+      path: "/auth",
+      element: <AuthLayout />,
       children: [
-        {path:"/register", element: <Register/>}
+        {path:"register", element: <Register/>},
+        {path: "login", element: <Login/>}
       ]
     }
   ])
