@@ -6,6 +6,7 @@ import Home from './pages/home/Home'
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Register from './pages/register/Register';
 import Login from './pages/login/Login';
+import AllProducts from './pages/allProducts/AllProducts';
 
 const App = () => {
 
@@ -28,6 +29,16 @@ const App = () => {
     )
   }
 
+  const AllproductsLayout = () => {
+    return(
+      <>
+        <Navbar/>
+        <Outlet/>
+        <Footer/>
+      </>
+    )
+  }
+
   const router = createBrowserRouter([
     {
       path: "/",
@@ -42,6 +53,13 @@ const App = () => {
       children: [
         {path:"register", element: <Register/>},
         {path: "login", element: <Login/>}
+      ]
+    },
+    {
+      path: "products",
+      element: <AllproductsLayout/>,
+      children: [
+        {path:"", element: <AllProducts/>}
       ]
     }
   ])
