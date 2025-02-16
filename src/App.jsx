@@ -7,6 +7,7 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Register from './pages/register/Register';
 import Login from './pages/login/Login';
 import AllProducts from './pages/allProducts/AllProducts';
+import SingleProduct from './pages/single product/SingleProduct';
 
 const App = () => {
 
@@ -59,7 +60,8 @@ const App = () => {
       path: "products",
       element: <AllproductsLayout/>,
       children: [
-        {path:"", element: <AllProducts/>}
+        {path:"", element: <AllProducts/>},
+        {path:":id", element: <SingleProduct/>}
       ]
     }
   ])
