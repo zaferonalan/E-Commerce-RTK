@@ -2,8 +2,15 @@ import './SingleProduct.css'
 import {allProducts} from '../../data';
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../../redux/cartSlice';
 
 const SingleProduct = () => {
+
+  const dispatch = useDispatch()
+  const handleAddToCart = (product) => {
+    dispatch(addToCart(product))
+  }
 
   const {id} = useParams();
 
@@ -56,7 +63,7 @@ const SingleProduct = () => {
             </div>
           </div>
           <div className='addToCart'>
-            <button>Add to cart</button>
+            <button onClick={()=> handleAddToCart(product)}>Add to cart</button>
           </div>
         </div>
       </div>

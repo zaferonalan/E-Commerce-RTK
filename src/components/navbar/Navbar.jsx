@@ -3,8 +3,13 @@ import { IoSearch } from "react-icons/io5"
 import "./Navbar.css"
 import { MdOutlineShoppingCart } from "react-icons/md"
 import { Link } from "react-router-dom"
+import { useSelector } from "react-redux"
 
 const Navbar = () => {
+
+  const cartItems = useSelector((state) => state.cart.cartItems)
+  const totalItems = cartItems.length
+
   return (
     <nav className="navbar-container">
       <div className="navbar-wrapper">
@@ -29,7 +34,9 @@ const Navbar = () => {
           </Link>
           <div className="navbar-menuItem">
             <MdOutlineShoppingCart className="icon"/>
-            <span className="cart-badge"></span>
+            { totalItems > 0 && 
+              <span className="cart-badge">{totalItems}</span>
+            }
           </div>
         </div>
       </div>
