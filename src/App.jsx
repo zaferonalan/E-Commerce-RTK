@@ -8,6 +8,7 @@ import Register from './pages/register/Register';
 import Login from './pages/login/Login';
 import AllProducts from './pages/allProducts/AllProducts';
 import SingleProduct from './pages/single product/SingleProduct';
+import Cart from './pages/cart/Cart';
 
 const App = () => {
 
@@ -40,6 +41,16 @@ const App = () => {
     )
   }
 
+  const CartLayout = () => {
+    return(
+      <>
+        <Navbar/>
+        <Outlet/>
+        <Footer/>
+      </>
+    )
+  }
+
   const router = createBrowserRouter([
     {
       path: "/",
@@ -62,6 +73,14 @@ const App = () => {
       children: [
         {path:"", element: <AllProducts/>},
         {path:":id", element: <SingleProduct/>}
+      ]
+    },
+
+    {
+      path: "cart",
+      element: <CartLayout/>,
+      children: [
+        {path: "", element: <Cart/>}
       ]
     }
   ])
